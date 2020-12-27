@@ -1,3 +1,10 @@
+require("dotenv").config({
+  path: `.env`,
+});
+
+console.log('************ config', process.env.STRIPE_PUB_KEY)
+console.log('************ env obj ************', process.env)
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -5,6 +12,14 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+  {
+    resolve: `gatsby-source-stripe`,
+    options: {
+      objects: ['Product', 'Subscription', 'Price'],
+      secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
+      downloadFiles: true,
+    }
+  },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
