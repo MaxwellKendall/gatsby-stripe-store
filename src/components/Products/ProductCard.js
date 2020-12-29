@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Img from "gatsby-image";
 import getStripe from "../../utils/stripejs"
 
 const cardStyles = {
@@ -40,14 +41,18 @@ const formatPrice = (amount, currency) => {
   return numberFormat.format(price)
 }
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({
+  name,
+  prices,
+  img
+ }) => {
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async event => {
-    event.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     setLoading(true)
 
-    const price = new FormData(event.target).get("priceSelect")
+    const price = new FormData(e.target).get("priceSelect")
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
       mode: "payment",
@@ -61,20 +66,20 @@ const ProductCard = ({ product }) => {
       setLoading(false)
     }
   }
-  console.log('product', product)
   return (
     <div style={cardStyles}>
       <form onSubmit={handleSubmit}>
         <fieldset style={{ border: "none" }}>
           <legend>
-            <h4>{product.name}</h4>
+            <h4>{name}</h4>
           </legend>
+          <Img fluid={img} />
           <label>
             Price{" "}
             <select name="priceSelect">
-              {product.prices.map(price => (
-                <option key={price.id} value={price.id}>
-                  {formatPrice(price.unit_amount, price.currency)}
+              {prices.map(({ id: priceId, unit_amount: price, currency }) => ( 
+                <option key={priceId} value={priceId}>
+                  {formatPrice(price, currency)}
                 </option>
               ))}
             </select>
