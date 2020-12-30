@@ -1,24 +1,16 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-import Checkout from "../components/checkout"
+import Products from "../components/Products/Products"
 
-const IndexPage = () => (
+const AdvancedExamplePage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Checkout />
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <SEO title="Shop" />
+    <h1>This is the advanced example</h1>
+    <Products />
   </Layout>
 )
 
-export default IndexPage
+export default AdvancedExamplePage
