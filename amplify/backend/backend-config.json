@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "gatsbystripestore362a5869": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify25eab99aaf124-staging-211010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::304945936761:role/amplify-amplify25eab99aaf124-staging-211010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::304945936761:role/amplify-amplify25eab99aaf124-staging-211010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify25eab99aaf124-staging-211010-deployment",
+      "UnauthRoleName": "amplify-amplify25eab99aaf124-staging-211010-unauthRole",
+      "StackName": "amplify-amplify25eab99aaf124-staging-211010",
+      "StackId": "arn:aws:cloudformation:us-east-1:304945936761:stack/amplify-amplify25eab99aaf124-staging-211010/6716ef40-4ae3-11eb-856a-0a5cf73de175",
+      "AmplifyAppId": "d3evk3ye32375l"
+    },
+    "categories": {
+      "auth": {
+        "gatsbystripestore362a5869": {}
+      }
+    }
+  }
+}
