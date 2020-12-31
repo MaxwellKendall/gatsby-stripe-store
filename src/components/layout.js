@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Auth from "./Auth"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -32,6 +33,7 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+        <Auth />
         <main>{children}</main>
         <footer style={{
           marginTop: `2rem`

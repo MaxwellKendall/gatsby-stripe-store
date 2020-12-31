@@ -4,11 +4,11 @@ import { Auth } from 'aws-amplify';
 
 // Manual Sign Up Process:
 const signUpDetails = {
-    username,
-    password,
+    username: '',
+    password: '',
     attributes: {
-        email,          // optional
-        phone_number,   // optional - E.164 number convention
+        email: '',          // optional
+        phone_number: '',   // optional - E.164 number convention
         // other custom attributes 
     }
 }
@@ -16,7 +16,8 @@ const signUpDetails = {
 export const signUp = async (details = signUpDetails) => {
     try {
         const { user } = await Auth.signUp(details);
-        console.log(user);
+        console.log('eyo', user);
+        return user;
     } catch (error) {
         console.log('error signing up:', error);
     }
@@ -30,15 +31,17 @@ export const confirmSignUp = async (username, code) => {
     }
 }
 
-export const signIn = async () => {
+export const signIn = async (username, password) => {
     try {
         const user = await Auth.signIn(username, password);
+        return true;
     } catch (error) {
         console.log('error signing in', error);
+        return false;
     }
 }
 
-export const resendConfirmationCode = async () => {
+export const resendConfirmationCode = async (username) => {
     try {
         await Auth.resendSignUp(username);
         console.log('code resent successfully');
